@@ -27,8 +27,8 @@ class Instructor extends Person {
         return `Today we are learning about ${subject}`;
     }
 
-    grade(Students, subject){
-        return `${Students.name} recieves a perfect score on ${subject}`;
+    grade(student, subject){
+        return `${student.newName} recieves a perfect score on ${subject}`;
     }
 }
 
@@ -67,7 +67,7 @@ class ProjectManagers extends Instructor {
     }
 
     debugsCode(student, subject){
-        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+        return `${this.newName} debugs ${student.newName}'s code on ${subject}`;
     }
 }
 
@@ -150,12 +150,12 @@ const michael = new ProjectManagers ({
 console.log(addison.speak());
 console.log(stella.speak());
 console.log(brit.newCatchPhrase);
-console.log(fred.grade('Lee', 'iOS'));
+console.log(fred.grade(lee, 'iOS'));
 console.log(brit.demo('Classes'));
 console.log(austin.newPreviousBackground);
 console.log(lee.listsSubjects([]));
 console.log(austin.sprintChallenge('JavaScript'));
 console.log(dwight.newFavInstructor);
 console.log(michael.standUp('WEB 24'));
-console.log(dwight.debugsCode('austin', 'HTML'));
+console.log(dwight.debugsCode(austin, 'HTML'));
 console.log(lee.PRAssignment('Flexbox'));
