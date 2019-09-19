@@ -30,6 +30,7 @@ class Instructor extends Person {
     grade(student, subject){
         return `${student.newName} recieves a perfect score on ${subject}`;
     }
+
 }
 
 class Student extends Person {
@@ -38,7 +39,8 @@ class Student extends Person {
         this.newName = stuAttributes.name,
         this.newPreviousBackground = stuAttributes.previousBackground,
         this.newClassName = stuAttributes.className,
-        this.newFavSubjects = stuAttributes.favSubjects
+        this.newFavSubjects = stuAttributes.favSubjects,
+        this.newGrade = stuAttributes.grade
     }
 
     listsSubjects(){
@@ -51,6 +53,17 @@ class Student extends Person {
 
     sprintChallenge(subject){
         return `${this.newName} has begun Sprint Challenge for ${subject}`;
+    }
+
+    graduate(){
+        if (this.newGrade >= 70){
+            return `${this.newName} has graduated with a final grade of ${this.newGrade}`;
+        }
+        else  {
+            let diff = 70 - this.newGrade;
+            this.newGrade += diff;
+            return `After more grading, ${diff} points were earned and ${this.newName} has graduated with a final grade of ${this.newGrade}`;
+        }
     }
 }
 
@@ -115,7 +128,8 @@ const austin = new Student ({
     age: 20,
     previousBackground: 'Pizza Hut',
     className: 'WEB 24',
-    favSubjects: ['HTML', 'CSS', 'JavaScript']
+    favSubjects: ['HTML', 'CSS', 'JavaScript'],
+    grade: 60
 });
 
 const lee = new Student ({
@@ -124,7 +138,8 @@ const lee = new Student ({
     age: 28,
     previousBackground: 'Computers Plus',
     className: 'iOS 132',
-    favSubjects: ['Auto Layout', 'Swift', 'Protocols']
+    favSubjects: ['Auto Layout', 'Swift', 'Protocols'],
+    grade: 100
 });
 
 //---------------------------PM Objects ---------------------------
@@ -159,3 +174,5 @@ console.log(dwight.newFavInstructor);
 console.log(michael.standUp('WEB 24'));
 console.log(dwight.debugsCode(austin, 'HTML'));
 console.log(lee.PRAssignment('Flexbox'));
+console.log(lee.graduate());
+console.log(austin.graduate());
